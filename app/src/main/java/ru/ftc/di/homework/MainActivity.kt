@@ -6,11 +6,13 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import ru.ftc.di.homework.presentation.MainState
 import ru.ftc.di.homework.presentation.MainViewModel
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 
 	//TODO: DI
-	private val viewModel = MainViewModel()
+	@Inject
+	lateinit var viewModel : MainViewModel
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)

@@ -4,11 +4,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import ru.ftc.di.homework.domain.usecase.GetSampleStringFromLocalUseCase
 import ru.ftc.di.homework.domain.usecase.GetSampleStringFromRemoteUseCase
+import javax.inject.Inject
 
-class MainViewModel {
+class MainViewModel @Inject constructor(private val getSampleStringFromLocalUseCase:GetSampleStringFromRemoteUseCase,
+                                        private val getSampleStringFromRemoteUseCase:GetSampleStringFromRemoteUseCase){
     //TODO: DI
-    private val getSampleStringFromLocalUseCase = GetSampleStringFromLocalUseCase()
-    private val getSampleStringFromRemoteUseCase = GetSampleStringFromRemoteUseCase()
+
 
     private val _state: MutableLiveData<MainState> = MutableLiveData<MainState>()
     val state: LiveData<MainState> = _state
